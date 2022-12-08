@@ -56,7 +56,7 @@ public class Destroyer extends Barco {
 						this.setPos_inicialY(coluna);
 						this.setDirecao(direcao);
 						for(int i = 0; i < 5; i++) {							
-							tabuleiro[linha][coluna+i] = 1;
+							tabuleiro[linha][coluna+i] = 4;
 						}						
 						var = false;
 					} else {
@@ -79,7 +79,7 @@ public class Destroyer extends Barco {
 						this.setPos_inicialY(coluna);
 						this.setDirecao(direcao);
 						for(int i = 0; i < 5; i++) {							
-							tabuleiro[linha+i][coluna] = 2;
+							tabuleiro[linha+i][coluna] = 4;
 						}
 						var = false;
 					} else {
@@ -101,7 +101,7 @@ public class Destroyer extends Barco {
 						this.setPos_inicialY(coluna);
 						this.setDirecao(direcao);
 						for(int i = 0; i < 5; i++) {							
-							tabuleiro[linha][coluna-i] = 3;
+							tabuleiro[linha][coluna-i] = 4;
 						}
 						var = false;
 					} else {
