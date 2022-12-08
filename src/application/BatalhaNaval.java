@@ -10,9 +10,9 @@ public class BatalhaNaval {
 		
 		tabuleiro.criaTabuleiro();
 		
-		Barco fragata = new Fragata();
+		Barco destroyer = new Destroyer();
 		
-		int[][] teste = fragata.criarBarco(tabuleiro.getTabuleiro());
+		int[][] teste = destroyer.criarBarco(tabuleiro.getTabuleiro());
 		
 		for(int i[] : teste) {
 			for(int j : i) {
