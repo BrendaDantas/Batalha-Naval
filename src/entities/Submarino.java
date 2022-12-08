@@ -19,7 +19,7 @@ public class Submarino extends Barco {
 				switch(direcao) {
 				case 1:		
 					for(int i = 0; i < 3; i++) {
-						if(linha != 0 && tabuleiro[linha-i][coluna] == 0) {
+						if(linha-i > 0 && tabuleiro[linha-i][coluna] == 0) {
 							tabuleiro[linha][coluna] = 2;
 							tabuleiro[linha-i][coluna] = 2;
 							this.setPos_inicialX(linha);
@@ -35,7 +35,7 @@ public class Submarino extends Barco {
 					break;
 				case 2:
 					for(int i = 0; i < 3; i++) {
-						if(coluna != 9 && tabuleiro[linha][coluna+i] == 0) {
+						if(coluna+i < 9 && tabuleiro[linha][coluna+i] == 0) {
 							tabuleiro[linha][coluna] = 2;
 							tabuleiro[linha][coluna+i] = 2;
 							this.setPos_inicialX(linha);
@@ -51,7 +51,7 @@ public class Submarino extends Barco {
 					break;
 				case 3:
 					for(int i = 0; i < 3; i++) {
-						if(linha != 9 && tabuleiro[linha+i][coluna] == 0) {
+						if(linha+i < 9 && tabuleiro[linha+i][coluna] == 0) {
 							tabuleiro[linha][coluna] = 2;
 							tabuleiro[linha+i][coluna] = 2;
 							this.setPos_inicialX(linha);
@@ -66,7 +66,7 @@ public class Submarino extends Barco {
 					break;
 				case 4:
 					for(int i = 0; i < 3; i++) {
-						if(coluna != 0 && tabuleiro[linha][coluna-i] == 0) {
+						if(coluna-i > 0 && tabuleiro[linha][coluna-i] == 0) {
 							tabuleiro[linha][coluna] = 2;
 							tabuleiro[linha][coluna-i] = 2;
 							this.setPos_inicialX(linha);
