@@ -5,8 +5,7 @@ import java.util.Random;
 public class Fragata extends Barco {
 
 	@Override
-	public int[][] criarBarco(int[][] tabuleiro) {
-		
+	public int[][] criarBarco(int[][] tabuleiro) {		
 		Random sorteio = new Random();		
 		boolean var = true;
 		
@@ -17,74 +16,103 @@ public class Fragata extends Barco {
 			int direcao = sorteio.nextInt(4);
 
 			if(tabuleiro[linha][coluna] == 0) {
-				switch(direcao) {
-				case 1:		
-					for(int i = 0; i < 4; i++) {
-						if(linha-i > 0 && tabuleiro[linha-i][coluna] == 0) {
-							tabuleiro[linha][coluna] = 3;
-							tabuleiro[linha-i][coluna] = 3;
-							this.setPos_inicialX(linha);
-							this.setPos_inicialY(coluna);
-							this.setDirecao(direcao);
-							var = false;
+				int cont = 0, aux = 1;
+				switch(direcao) {	
+				case 0:		
+					while(cont < 4) {
+						if(tabuleiro[linha-cont][coluna] == 0 && linha-cont > 0) {											
+							aux++;
+							cont++;
 						} else {
-							var = true;
+							aux = 0;
 							break;
+						}									
+					}
+					if(aux == 5) {
+						this.setPos_inicialX(linha);
+						this.setPos_inicialY(coluna);
+						this.setDirecao(direcao);
+						for(int i = 0; i < 4; i++) {							
+							tabuleiro[linha-i][coluna] = 4;
 						}
-					}	
-									
+						var = false;
+					} else {
+						break;
+					}
 					break;
-				case 2:
-					for(int i = 0; i < 4; i++) {
-						if(coluna+i < 9 && tabuleiro[linha][coluna+i] == 0) {
-							tabuleiro[linha][coluna] = 3;
-							tabuleiro[linha][coluna+i] = 3;
-							this.setPos_inicialX(linha);
-							this.setPos_inicialY(coluna);
-							this.setDirecao(direcao);
-							var = false;
+					
+				case 1:
+					while(cont < 4) {
+						if(tabuleiro[linha][coluna+cont] == 0 && coluna+cont < 9) {
+							aux++;
+							cont++;
 						} else {
-							var = true;
+							aux = 0;
 							break;
+						}						
+					}
+					if(aux == 5) {
+						this.setPos_inicialX(linha);						
+						this.setPos_inicialY(coluna);
+						this.setDirecao(direcao);
+						for(int i = 0; i < 4; i++) {							
+							tabuleiro[linha][coluna+i] = 1;
+						}						
+						var = false;
+					} else {
+						break;
+					}
+					break;
+					
+				case 2:
+					while(cont < 4) {
+						if(tabuleiro[linha+cont][coluna] == 0 && linha+cont < 9) {							
+							aux++;
+							cont++;
+						} else {
+							aux = 0;
+							break;
+						}						
+					}
+					if(aux == 5) {
+						this.setPos_inicialX(linha);						
+						this.setPos_inicialY(coluna);
+						this.setDirecao(direcao);
+						for(int i = 0; i < 4; i++) {							
+							tabuleiro[linha+i][coluna] = 2;
 						}
-					}	
-							
+						var = false;
+					} else {
+						break;
+					}
 					break;
 				case 3:
-					for(int i = 0; i < 4; i++) {
-						if(linha+i < 9 && tabuleiro[linha+i][coluna] == 0) {
-							tabuleiro[linha][coluna] = 3;
-							tabuleiro[linha+i][coluna] = 3;
-							this.setPos_inicialX(linha);
-							this.setPos_inicialY(coluna);
-							this.setDirecao(direcao);
-							var = false;
+					while(cont < 4) {
+						if(tabuleiro[linha][coluna-cont] == 0 && coluna-cont > 0) {							
+							aux++;
+							cont++;
 						} else {
-							var = true;
+							aux = 0;
 							break;
-						}
-					}								
-					break;
-				case 4:
-					for(int i = 0; i < 4; i++) {
-						if(coluna-i > 0 && tabuleiro[linha][coluna-i] == 0) {
-							tabuleiro[linha][coluna] = 3;
+						}						
+					}
+					if(aux == 5) {
+						this.setPos_inicialX(linha);						
+						this.setPos_inicialY(coluna);
+						this.setDirecao(direcao);
+						for(int i = 0; i < 4; i++) {							
 							tabuleiro[linha][coluna-i] = 3;
-							this.setPos_inicialX(linha);
-							this.setPos_inicialY(coluna);
-							this.setDirecao(direcao);
-							var = false;
-						} else {
-							var = true;
-							break;
 						}
-					}					
+						var = false;
+					} else {
+						break;
+					}
 					break;
-				}
-			}
+				}				
+			} 
 		}
 		return tabuleiro;
-	}		
+	}
 
 
 	@Override
