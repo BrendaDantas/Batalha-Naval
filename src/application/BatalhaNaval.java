@@ -1,6 +1,8 @@
 package application;
 
-import entities.*;
+import entities.Barco;
+import entities.Submarino;
+import entities.Tabuleiro;
 
 public class BatalhaNaval {
 
@@ -9,13 +11,10 @@ public class BatalhaNaval {
 		Tabuleiro tabuleiro = new Tabuleiro();
 		
 		tabuleiro.criaTabuleiro();
-		//tabuleiro.mostraTabuleiro();
 		
-		Barco fragata = new Fragata();
-		//tabuleiro.setTabuleiro(corveta.criarBarco(tabuleiro.getTabuleiro()));
-		//tabuleiro.mostraTabuleiro();
+		Barco submarino = new Submarino();
 		
-		int[][] teste = fragata.criarBarco(tabuleiro.getTabuleiro());
+		int[][] teste = submarino.criarBarco(tabuleiro.getTabuleiro());
 		
 		for(int i[] : teste) {
 			for(int j : i) {

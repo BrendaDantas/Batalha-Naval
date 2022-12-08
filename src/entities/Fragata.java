@@ -81,7 +81,7 @@ public class Fragata extends Barco {
 					}					
 					break;
 				}
-			}	
+			}
 		}
 		return tabuleiro;
 	}		
