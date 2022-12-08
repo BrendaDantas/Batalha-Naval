@@ -32,7 +32,8 @@ public class Tabuleiro {
 		int[][] teste = corveta.criarBarco(tabuleiro);
 		teste = submarino.criarBarco(teste);
 		teste = fragata.criarBarco(teste);
-		teste = destroyer.criarBarco(teste);		
+		teste = destroyer.criarBarco(teste);
+		
 	}
 	
 	/*

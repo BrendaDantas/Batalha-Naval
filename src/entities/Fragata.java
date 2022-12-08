@@ -117,8 +117,41 @@ public class Fragata extends Barco {
 
 	@Override
 	public boolean verificaSeAfundou(int[][] tabuleiro) {
-		// TODO Auto-generated method stub
+		switch(this.getDirecao()) {
+		//Para cima
+		case 0:
+			for(int i = 0; i < 4; i++) {
+				if(tabuleiro[this.getPos_inicialX()-i][this.getPos_inicialY()] == 2) {
+					return false;
+				}
+			}
+			return true;
+		//Para direita	
+		case 1:
+			for(int i = 0; i < 3; i++) {
+				if(tabuleiro[this.getPos_inicialX()][this.getPos_inicialY()+i] == 2) {
+					return false;
+				}
+			}
+			return true;
+		//Para baixo
+		case 2:
+			for(int i = 0; i < 4; i++) {
+				if(tabuleiro[this.getPos_inicialX()+i][this.getPos_inicialY()] == 2) {
+					return false;
+				}
+			}
+			return true;
+		//Para esquerda
+		case 3:
+			for(int i = 0; i < 4; i++) {
+				if(tabuleiro[this.getPos_inicialX()][this.getPos_inicialY()-i] == 2) {
+					return false;
+				}
+			}
+			return true;			
+		}
 		return false;
 	}
-
 }
+
