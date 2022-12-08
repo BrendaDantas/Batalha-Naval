@@ -67,6 +67,40 @@ public class Corveta extends Barco {
 	@Override
 	public boolean verificaSeAfundou(int[][] tabuleiro) {
 		
+		switch(this.getDirecao()) {
+		//Para cima
+		case 0:
+			for(int i = 0; i < 2; i++) {
+				if(tabuleiro[this.getPos_inicialX()-i][this.getPos_inicialY()] == 2) {
+					return false;
+				}
+			}
+			return true;
+		//Para direita	
+		case 1:
+			for(int i = 0; i < 2; i++) {
+				if(tabuleiro[this.getPos_inicialX()][this.getPos_inicialY()+i] == 2) {
+					return false;
+				}
+			}
+			return true;
+		//Para baixo
+		case 2:
+			for(int i = 0; i < 2; i++) {
+				if(tabuleiro[this.getPos_inicialX()+i][this.getPos_inicialY()] == 2) {
+					return false;
+				}
+			}
+			return true;
+		//Para esquerda
+		case 3:
+			for(int i = 0; i < 2; i++) {
+				if(tabuleiro[this.getPos_inicialX()][this.getPos_inicialY()-i] == 2) {
+					return false;
+				}
+			}
+			return true;			
+		}
 		return false;
 	}
 
