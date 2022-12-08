@@ -4,43 +4,6 @@ import java.util.Random;
 
 public class Submarino extends Barco {
 	
-	private int pos_umX;
-	private int pos_doisX;
-	private int pos_umY;
-	private int pos_doisY;
-	
-	public int getPos_umX() {
-		return pos_umX;
-	}
-
-	public void setPos_umX(int pos_umX) {
-		this.pos_umX = pos_umX;
-	}
-
-	public int getPos_doisX() {
-		return pos_doisX;
-	}
-
-	public void setPos_doisX(int pos_doisX) {
-		this.pos_doisX = pos_doisX;
-	}
-
-	public int getPos_umY() {
-		return pos_umY;
-	}
-
-	public void setPos_umY(int pos_umY) {
-		this.pos_umY = pos_umY;
-	}
-
-	public int getPos_doisY() {
-		return pos_doisY;
-	}
-
-	public void setPos_doisY(int pos_doisY) {
-		this.pos_doisY = pos_doisY;
-	}
-
 	@Override
 	public int[][] criarBarco(int[][] tabuleiro) {		
 		Random sorteio = new Random();		
@@ -53,11 +16,9 @@ public class Submarino extends Barco {
 			int direcao = sorteio.nextInt(4);
 
 			if(tabuleiro[linha][coluna] == 0) {
-				//boolean teste = false;
 				int cont = 0, aux = 1;
 				switch(direcao) {	
 				case 0:		
-					System.out.println("Caso Cima");
 					while(cont < 3) {
 						if(tabuleiro[linha-cont][coluna] == 0 && linha-cont > 0) {											
 							aux++;
@@ -69,7 +30,8 @@ public class Submarino extends Barco {
 					}
 					if(aux == 4) {
 						this.setPos_inicialX(linha);
-						this.setPos_inicialY(coluna);		
+						this.setPos_inicialY(coluna);
+						this.setDirecao(direcao);
 						for(int i = 0; i < 3; i++) {							
 							tabuleiro[linha-i][coluna] = 4;
 						}
@@ -78,8 +40,8 @@ public class Submarino extends Barco {
 						break;
 					}
 					break;
+					
 				case 1:
-					System.out.println("Caso lado Direito");
 					while(cont < 3) {
 						if(tabuleiro[linha][coluna+cont] == 0 && coluna+cont < 9) {
 							aux++;
@@ -90,9 +52,9 @@ public class Submarino extends Barco {
 						}						
 					}
 					if(aux == 4) {
-
 						this.setPos_inicialX(linha);						
 						this.setPos_inicialY(coluna);
+						this.setDirecao(direcao);
 						for(int i = 0; i < 3; i++) {							
 							tabuleiro[linha][coluna+i] = 1;
 						}						
@@ -103,7 +65,6 @@ public class Submarino extends Barco {
 					break;
 					
 				case 2:
-					System.out.println("Caso Baixo");
 					while(cont < 3) {
 						if(tabuleiro[linha+cont][coluna] == 0 && linha+cont < 9) {							
 							aux++;
@@ -111,12 +72,12 @@ public class Submarino extends Barco {
 						} else {
 							aux = 0;
 							break;
-						}
-						
+						}						
 					}
 					if(aux == 4) {
 						this.setPos_inicialX(linha);						
-						this.setPos_inicialY(coluna);						
+						this.setPos_inicialY(coluna);
+						this.setDirecao(direcao);
 						for(int i = 0; i < 3; i++) {							
 							tabuleiro[linha+i][coluna] = 2;
 						}
@@ -126,7 +87,6 @@ public class Submarino extends Barco {
 					}
 					break;
 				case 3:
-					System.out.println("Caso lado Esquerdo");
 					while(cont < 3) {
 						if(tabuleiro[linha][coluna-cont] == 0 && coluna-cont > 0) {							
 							aux++;
@@ -134,14 +94,14 @@ public class Submarino extends Barco {
 						} else {
 							aux = 0;
 							break;
-						}
-						
+						}						
 					}
 					if(aux == 4) {
 						this.setPos_inicialX(linha);						
 						this.setPos_inicialY(coluna);
+						this.setDirecao(direcao);
 						for(int i = 0; i < 3; i++) {							
-							tabuleiro[linha][coluna-i] = 2;
+							tabuleiro[linha][coluna-i] = 3;
 						}
 						var = false;
 					} else {
@@ -156,7 +116,40 @@ public class Submarino extends Barco {
 
 	@Override
 	public boolean verificaSeAfundou(int[][] tabuleiro) {
-		// TODO Auto-generated method stub
+		switch(this.getDirecao()) {
+		//Para cima
+		case 0:
+			for(int i = 0; i < 3; i++) {
+				if(tabuleiro[this.getPos_inicialX()-i][this.getPos_inicialY()] == 2) {
+					return false;
+				}
+			}
+			return true;
+		//Para direita	
+		case 1:
+			for(int i = 0; i < 3; i++) {
+				if(tabuleiro[this.getPos_inicialX()][this.getPos_inicialY()+i] == 2) {
+					return false;
+				}
+			}
+			return true;
+		//Para baixo
+		case 2:
+			for(int i = 0; i < 3; i++) {
+				if(tabuleiro[this.getPos_inicialX()+i][this.getPos_inicialY()] == 2) {
+					return false;
+				}
+			}
+			return true;
+		//Para esquerda
+		case 3:
+			for(int i = 0; i < 3; i++) {
+				if(tabuleiro[this.getPos_inicialX()][this.getPos_inicialY()-i] == 2) {
+					return false;
+				}
+			}
+			return true;			
+		}
 		return false;
 	}
 
