@@ -20,7 +20,7 @@ public class Destroyer extends Barco {
 				switch(direcao) {
 				case 1:		
 					for(int i = 0; i < 5; i++) {
-						if(linha != 0 && tabuleiro[linha-i][coluna] == 0) {
+						if(linha-i > 0 && tabuleiro[linha-i][coluna] == 0) {
 							tabuleiro[linha][coluna] = 1;
 							tabuleiro[linha-i][coluna] = 2;
 							this.setPos_inicialX(linha);
@@ -36,7 +36,7 @@ public class Destroyer extends Barco {
 					break;
 				case 2:
 					for(int i = 0; i < 5; i++) {
-						if(coluna != 9 && tabuleiro[linha][coluna+i] == 0) {
+						if(coluna+i < 9 && tabuleiro[linha][coluna+i] == 0) {
 							tabuleiro[linha][coluna] = 3;
 							tabuleiro[linha][coluna+i] = 4;
 							this.setPos_inicialX(linha);
@@ -52,7 +52,7 @@ public class Destroyer extends Barco {
 					break;
 				case 3:
 					for(int i = 0; i < 5; i++) {
-						if(linha != 9 && tabuleiro[linha+i][coluna] == 0) {
+						if(linha+i < 9 && tabuleiro[linha+i][coluna] == 0) {
 							tabuleiro[linha][coluna] = 5;
 							tabuleiro[linha+i][coluna] = 6;
 							this.setPos_inicialX(linha);
@@ -67,7 +67,7 @@ public class Destroyer extends Barco {
 					break;
 				case 4:
 					for(int i = 0; i < 5; i++) {
-						if(coluna != 0 && tabuleiro[linha][coluna-i] == 0) {
+						if(coluna-i > 0 && tabuleiro[linha][coluna-i] == 0) {
 							tabuleiro[linha][coluna] = 7;
 							tabuleiro[linha][coluna-i] = 8;
 							this.setPos_inicialX(linha);
