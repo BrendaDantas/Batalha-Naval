@@ -17,7 +17,6 @@ public class Corveta extends Barco {
 			int direcao = sorteio.nextInt(4);
 
 			if(tabuleiro[linha][coluna] == 0) {
-				System.out.println("Primeiro if");
 				switch(direcao) {
 				case 1:				
 					if(linha != 0 && tabuleiro[linha-1][coluna] == 0) {

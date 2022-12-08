@@ -39,7 +39,14 @@ public class Tabuleiro {
 					System.out.print(" X ");
 				} else if(tabuleiro[linha][coluna] == 1) {
 					System.out.print(" C ");
+				} else if(tabuleiro[linha][coluna] == 2) {
+					System.out.print(" S ");
+				} else if(tabuleiro[linha][coluna] == 3) {
+					System.out.print(" F ");
+				} else if(tabuleiro[linha][coluna] == 4) {
+					System.out.print(" D ");
 				}
+				
 			}			
 			System.out.println();
 		}		

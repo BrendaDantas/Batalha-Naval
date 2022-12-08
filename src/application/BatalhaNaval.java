@@ -11,11 +11,11 @@ public class BatalhaNaval {
 		tabuleiro.criaTabuleiro();
 		//tabuleiro.mostraTabuleiro();
 		
-		Barco corveta = new Corveta();
+		Barco submarino = new Submarino();
 		//tabuleiro.setTabuleiro(corveta.criarBarco(tabuleiro.getTabuleiro()));
 		//tabuleiro.mostraTabuleiro();
 		
-		int[][] teste = corveta.criarBarco(tabuleiro.getTabuleiro());
+		int[][] teste = submarino.criarBarco(tabuleiro.getTabuleiro());
 		
 		for(int i[] : teste) {
 			for(int j : i) {
