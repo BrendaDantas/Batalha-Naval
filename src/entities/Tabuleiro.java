@@ -23,6 +23,18 @@ public class Tabuleiro {
 		}
 	}
 	
+	public void criarBarcoEmTabuleiro() {
+		Barco corveta = new Corveta();
+		Barco submarino = new Submarino();
+		Barco fragata = new Fragata();
+		Barco destroyer = new Destroyer();
+		
+		int[][] teste = corveta.criarBarco(tabuleiro);
+		teste = submarino.criarBarco(teste);
+		teste = fragata.criarBarco(teste);
+		teste = destroyer.criarBarco(teste);		
+	}
+	
 	/*
 	 *  Mostrando o tabuleiro com condições onde 
 	 * ~ é agua e sem navio, * é um tiro onde não tem navio(errou)
