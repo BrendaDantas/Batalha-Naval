@@ -1,20 +1,16 @@
 package application;
 
-import java.util.Scanner;
-
-import entities.Tabuleiro;
+import controller.Jogador;
 
 public class BatalhaNaval {
 
 	public static void main(String[] args) {
-				
-		Tabuleiro tabuleiro = new Tabuleiro();
 		
-		tabuleiro.criaTabuleiro();
-		tabuleiro.criarBarcoEmTabuleiro();
-		tabuleiro.mostraTabuleiro();
+		Jogador jogador = new Jogador();
 		
-		//Scanner sc = new Scanner(System.in);
+		jogador.iniciarPartida();
+		jogador.pegaTiros();
+		
 		
 		
 		

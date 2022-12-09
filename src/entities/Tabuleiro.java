@@ -3,10 +3,50 @@ package entities;
 public class Tabuleiro {
 	
 	private int[][] tabuleiro = new int[10][10];
+	Barco corveta;
+	Barco submarino;
+	Barco fragata;
+	Barco destroyer;
 	
 	public Tabuleiro() {
+		this.corveta = new Corveta();
+		this.submarino = new Submarino();
+		this.fragata = new Fragata();
+		this.destroyer = new Destroyer();
 	}
-	
+
+	public Barco getCorveta() {
+		return corveta;
+	}
+
+	public void setCorveta(Barco corveta) {
+		this.corveta = corveta;
+	}
+
+	public Barco getSubmarino() {
+		return submarino;
+	}
+
+	public void setSubmarino(Barco submarino) {
+		this.submarino = submarino;
+	}
+
+	public Barco getFragata() {
+		return fragata;
+	}
+
+	public void setFragata(Barco fragata) {
+		this.fragata = fragata;
+	}
+
+	public Barco getDestroyer() {
+		return destroyer;
+	}
+
+	public void setDestroyer(Barco destroyer) {
+		this.destroyer = destroyer;
+	}
+
 	public int[][] getTabuleiro() {
 		return tabuleiro;
 	}
@@ -24,15 +64,10 @@ public class Tabuleiro {
 	}
 	
 	public void criarBarcoEmTabuleiro() {
-		Barco corveta = new Corveta();
-		Barco submarino = new Submarino();
-		Barco fragata = new Fragata();
-		Barco destroyer = new Destroyer();
-		
-		int[][] teste = corveta.criarBarco(tabuleiro);
-		teste = submarino.criarBarco(teste);
-		teste = fragata.criarBarco(teste);
-		teste = destroyer.criarBarco(teste);
+		this.corveta.criarBarco(this.getTabuleiro());
+		this.submarino.criarBarco(this.getTabuleiro());
+		this.fragata.criarBarco(this.getTabuleiro());
+		this.destroyer.criarBarco(this.getTabuleiro());
 		
 	}
 	
@@ -44,7 +79,7 @@ public class Tabuleiro {
 	public void mostraTabuleiro() {
 		for(int linha = 0; linha < 10; linha++) {
 			for(int coluna = 0; coluna < 10; coluna++) {
-				if(tabuleiro[linha][coluna] == 0 || tabuleiro[linha][coluna] == 1) {
+				if(tabuleiro[linha][coluna] >= 0 && tabuleiro[linha][coluna] <= 4) {
 					System.out.print(" ~ ");
 				} else if(tabuleiro[linha][coluna] == -1) {
 					System.out.print(" * ");
