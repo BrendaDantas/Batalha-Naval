@@ -6,55 +6,64 @@ import java.util.Scanner;
 import entities.Tabuleiro;
 
 public class Jogador {
-	
-	int linha, coluna;		
+			
 	Tabuleiro tabuleiro;
 	Scanner sc = new Scanner(System.in);
+	boolean teste = false;
 	
 	public Jogador() {
 		this.tabuleiro = new Tabuleiro();
 	}
 	
+	public Tabuleiro getTabuleiro() {
+		return tabuleiro;
+	}
+
+	public void setTabuleiro(Tabuleiro tabuleiro) {
+		this.tabuleiro = tabuleiro;
+	}
+
 	public void iniciarPartida() {
 		tabuleiro.criaTabuleiro();
 		tabuleiro.criarBarcoEmTabuleiro();
 		tabuleiro.mostraTabuleiro();
 	}
-	/*public int getLinha() {
-		return linha;
-	}
-
-	public void setLinha(int linha) {
-		this.linha = linha;
-	}
-
-	public int getColuna() {
-		return coluna;
-	}
-
-	public void setColuna(int coluna) {
-		this.coluna = coluna;
-	}*/
 
 	public void pegaTiros() {
-		boolean var = true;		
+		boolean var = true;			
 		while(var) {	
 			try {				
 				System.out.println("Digite a linha e coluna em que quer atacar[entre 0 e 9], respectivamente:"); 
 				System.out.print("Linha: ");
-				linha = sc.nextInt();
+				int linha = sc.nextInt();
 				System.out.print("Coluna: ");
-				coluna = sc.nextInt();
-				var = false;
+				int coluna = sc.nextInt();
+				//Verifica se o tiro foi na agua, já teve ou navio
+				if(this.tabuleiro.getTabuleiro()[linha][coluna] == -1 || this.tabuleiro.getTabuleiro()[linha][coluna] == -2) {
+					System.out.println("Posicao ja foi atirada anteriormente.");
+					var = true;
+				} else if (this.tabuleiro.getTabuleiro()[linha][coluna] > 0 && this.tabuleiro.getTabuleiro()[linha][coluna] <= 4) {
+					this.tabuleiro.getTabuleiro()[linha][coluna] = -2;
+					System.out.println("Navio atingido.");
+					var = false;
+				} else if(this.tabuleiro.getTabuleiro()[linha][coluna] == 0) {
+					this.tabuleiro.getTabuleiro()[linha][coluna] = -1;
+					System.out.println("Agua atingida");
+					var = false;
+				}
 			}
 			catch(InputMismatchException e) {
 				System.out.println("Tipo invalido. Adicione apenas numeros inteiros.");
 				sc.nextLine();
 				var = true;
 			}
+			catch(ArrayIndexOutOfBoundsException e) {
+				System.out.println("Posicao invalida. Tente novamente.");
+				sc.nextLine();
+				var = true;
+			}
 		}
-		System.out.println("Linha " + linha + " e " + coluna );
-		System.out.println("ACABOU.");
+		
 	}	
 
 }

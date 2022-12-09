@@ -79,10 +79,13 @@ public class Tabuleiro {
 	public void mostraTabuleiro() {
 		for(int linha = 0; linha < 10; linha++) {
 			for(int coluna = 0; coluna < 10; coluna++) {
+				//Agua ou Navio
 				if(tabuleiro[linha][coluna] >= 0 && tabuleiro[linha][coluna] <= 4) {
 					System.out.print(" ~ ");
+				//Tiro atingido na agua
 				} else if(tabuleiro[linha][coluna] == -1) {
 					System.out.print(" * ");
+				//Tiro atingido em navio
 				} else if(tabuleiro[linha][coluna] == -2) {
 					System.out.print(" X ");
 				} /*else if(tabuleiro[linha][coluna] == 1) {
