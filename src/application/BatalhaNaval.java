@@ -14,15 +14,15 @@ public class BatalhaNaval {
 		char resposta;
 		
 		jogador.iniciarPartida();
-		//jogador.pegaTiros();
 		jogador.getTabuleiro().mostraTabuleiro();
 		
 		
 		do {		
 			jogador.pegaTiros();
 			jogador.getTabuleiro().mostraTabuleiro();
-			jogador.verificaSeAfundou();
-			
+			if(jogador.verificaSeAfundou()) {
+				break;
+			}			
 			System.out.println("Você deseja parar de jogar? [S/N]");
 			resposta = sc.nextLine().toUpperCase().charAt(0);
 		}while(resposta == 'N');
