@@ -80,6 +80,10 @@ public class Tabuleiro {
 		for(int linha = 0; linha < 10; linha++) {
 			for(int coluna = 0; coluna < 10; coluna++) {
 				//Agua ou Navio
+				/*CORVETA = 1;
+				SUBMARINO = 2;
+				FRAGATA = 3;
+				DESTROYER = 4;*/
 				if(tabuleiro[linha][coluna] >= 0 && tabuleiro[linha][coluna] <= 4) {
 					System.out.print(" ~ ");
 				//Tiro atingido na agua
@@ -88,15 +92,7 @@ public class Tabuleiro {
 				//Tiro atingido em navio
 				} else if(tabuleiro[linha][coluna] == -2) {
 					System.out.print(" X ");
-				} /*else if(tabuleiro[linha][coluna] == 1) {
-					System.out.print(" C ");
-				} else if(tabuleiro[linha][coluna] == 2) {
-					System.out.print(" S ");
-				} else if(tabuleiro[linha][coluna] == 3) {
-					System.out.print(" F ");
-				} else if(tabuleiro[linha][coluna] == 4) {
-					System.out.print(" D ");
-				}*/
+				}
 				
 			}			
 			System.out.println();

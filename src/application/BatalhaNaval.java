@@ -3,7 +3,6 @@ package application;
 import java.util.Scanner;
 
 import controller.Jogador;
-import entities.Tabuleiro;
 
 public class BatalhaNaval {
 
@@ -12,22 +11,31 @@ public class BatalhaNaval {
 		Scanner sc = new Scanner(System.in);	
 		Jogador jogador = new Jogador();
 		char resposta;
-		
+				
 		jogador.iniciarPartida();
 		jogador.getTabuleiro().mostraTabuleiro();
 		
-		
-		do {		
+		do {	
+			
 			jogador.pegaTiros();
 			jogador.getTabuleiro().mostraTabuleiro();
 			if(jogador.verificaSeAfundou()) {
 				break;
 			}			
-			System.out.println("Você deseja parar de jogar? [S/N]");
-			resposta = sc.nextLine().toUpperCase().charAt(0);
+			
+			resposta = ' ';			
+			while(resposta != 'N' && resposta != 'S') {
+				System.out.println("Você deseja parar de jogar? [S/N]: ");
+				try {				
+					resposta = sc.nextLine().toUpperCase().charAt(0);
+				}
+				catch(StringIndexOutOfBoundsException e) {
+					System.out.println("Digite uma resposta.");
+				}
+			}			
 		}while(resposta == 'N');
 		
+		sc.close();		
 		System.out.println("O jogo acabou.");
 	}
-
 }

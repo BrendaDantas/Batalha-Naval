@@ -1,14 +1,6 @@
 package entities;
 
-import java.util.HashMap;
-
 public abstract class Barco {
-	
-	/*public static final int CORVETA = 2;
-	public static final int SUBMARINO = 3;
-	public static final int FRAGATA = 4;
-	public static final int DESTROYER = 5;*/
-	
 	private int pos_inicialX;
 	private int pos_inicialY;	
 	private int direcao;
