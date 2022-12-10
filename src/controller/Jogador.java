@@ -65,5 +65,31 @@ public class Jogador {
 		}
 		
 	}	
+	
+	public boolean verificaSeAfundou() {
+		int aux = 0;
+		
+		if(this.tabuleiro.getCorveta().verificaSeAfundou(this.tabuleiro.getTabuleiro())) {
+			aux++;
+			System.out.println("O corveta afundou.");
+		}
+		if(this.tabuleiro.getSubmarino().verificaSeAfundou(this.tabuleiro.getTabuleiro())) {
+			aux++;
+			System.out.println("O submarino afundou.");
+		}
+		if(this.tabuleiro.getFragata().verificaSeAfundou(this.tabuleiro.getTabuleiro())) {
+			aux++;
+			System.out.println("A fragata afundou.");
+		}
+		if(this.tabuleiro.getDestroyer().verificaSeAfundou(this.tabuleiro.getTabuleiro())) {
+			aux++;
+			System.out.println("O destroyer afundou.");
+		}
+		if(aux == 4) {
+			System.out.println("Todos os navios foram afundados.");
+			return true;
+		}
+		return false;
+	}
 
 }

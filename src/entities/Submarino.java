@@ -121,9 +121,11 @@ public class Submarino extends Barco {
 		case 0:
 			for(int i = 0; i < 3; i++) {
 				if(tabuleiro[this.getPos_inicialX()-i][this.getPos_inicialY()] == 2) {
+					//Se for submarino, retorno false. Significa que ainda tem navio la, entao nao afundou
 					return false;
 				}
 			}
+			//Se nao for submarino, retorno true. Significa que nao tem mais submarino la, então afundou
 			return true;
 		//Para direita	
 		case 1:

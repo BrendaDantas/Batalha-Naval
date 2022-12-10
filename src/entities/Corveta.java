@@ -71,7 +71,7 @@ public class Corveta extends Barco {
 		//Para cima
 		case 0:
 			for(int i = 0; i < 2; i++) {
-				if(tabuleiro[this.getPos_inicialX()-i][this.getPos_inicialY()] == 2) {
+				if(tabuleiro[this.getPos_inicialX()-i][this.getPos_inicialY()] == 1) {
 					return false;
 				}
 			}
@@ -79,7 +79,7 @@ public class Corveta extends Barco {
 		//Para direita	
 		case 1:
 			for(int i = 0; i < 2; i++) {
-				if(tabuleiro[this.getPos_inicialX()][this.getPos_inicialY()+i] == 2) {
+				if(tabuleiro[this.getPos_inicialX()][this.getPos_inicialY()+i] == 1) {
 					return false;
 				}
 			}
@@ -87,7 +87,7 @@ public class Corveta extends Barco {
 		//Para baixo
 		case 2:
 			for(int i = 0; i < 2; i++) {
-				if(tabuleiro[this.getPos_inicialX()+i][this.getPos_inicialY()] == 2) {
+				if(tabuleiro[this.getPos_inicialX()+i][this.getPos_inicialY()] == 1) {
 					return false;
 				}
 			}
@@ -95,7 +95,7 @@ public class Corveta extends Barco {
 		//Para esquerda
 		case 3:
 			for(int i = 0; i < 2; i++) {
-				if(tabuleiro[this.getPos_inicialX()][this.getPos_inicialY()-i] == 2) {
+				if(tabuleiro[this.getPos_inicialX()][this.getPos_inicialY()-i] == 1) {
 					return false;
 				}
 			}
