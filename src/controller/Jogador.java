@@ -7,9 +7,9 @@ import entities.Tabuleiro;
 
 public class Jogador {
 			
-	Tabuleiro tabuleiro;
-	Scanner sc = new Scanner(System.in);
+	Tabuleiro tabuleiro;	
 	boolean teste = false;
+	Scanner sc = new Scanner(System.in);
 	
 	public Jogador() {
 		this.tabuleiro = new Tabuleiro();
@@ -29,16 +29,26 @@ public class Jogador {
 		tabuleiro.mostraTabuleiro();
 	}
 
-	public void pegaTiros() {
+	public boolean pegaTiros() {
+	
 		boolean var = true;			
-		while(var) {	
+		while(var) {				
 			try {				
-				System.out.println("Digite a linha e coluna em que quer atacar[entre 0 e 9], respectivamente:"); 
+				System.out.println("Digite a linha e coluna em que quer atacar[entre 0 e 9]. \nPara ENCERRAR o jogo a qualquer momento, basta digitar -3 "); 
 				System.out.print("Linha: ");
 				int linha = sc.nextInt();
+				if(linha == -3) {
+					sc.close();
+					return false;
+				}
 				System.out.print("Coluna: ");
 				int coluna = sc.nextInt();
-				//Verifica se o tiro foi na agua, já teve ou navio
+				if(coluna == -3) {
+					sc.close();
+					return false;
+				}
+				
+				//Verifica se o tiro foi na agua, já teve ou navio				
 				if(this.tabuleiro.getTabuleiro()[linha][coluna] == -1 || this.tabuleiro.getTabuleiro()[linha][coluna] == -2) {
 					System.out.println("Posicao ja foi atirada anteriormente.");
 					var = true;
@@ -62,8 +72,9 @@ public class Jogador {
 				sc.nextLine();
 				var = true;
 			}
+			
 		}
-		
+		return true;		
 	}	
 	
 	public boolean verificaSeAfundou() {

@@ -7,23 +7,26 @@ import controller.Jogador;
 public class BatalhaNaval {
 
 	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);	
+			
 		Jogador jogador = new Jogador();
+		Scanner sc = new Scanner(System.in);
+		boolean var = true;
 		char resposta;
-				
-		jogador.iniciarPartida();
-		jogador.getTabuleiro().mostraTabuleiro();
 		
-		do {	
+		
+		while(var) {
+			jogador.iniciarPartida();		
+			do {			
+				if(!jogador.pegaTiros()) {
+					System.out.println("O jogo foi encerrado.");
+					return;
+				}
+				jogador.getTabuleiro().mostraTabuleiro();			
+						
+			}while(!jogador.verificaSeAfundou());
+			System.out.println("A partida acabou.");
 			
-			jogador.pegaTiros();
-			jogador.getTabuleiro().mostraTabuleiro();
-			if(jogador.verificaSeAfundou()) {
-				break;
-			}			
-			
-			resposta = ' ';			
+			resposta = ' ';
 			while(resposta != 'N' && resposta != 'S') {
 				System.out.println("Você deseja parar de jogar? [S/N]: ");
 				try {				
@@ -33,9 +36,10 @@ public class BatalhaNaval {
 					System.out.println("Digite uma resposta.");
 				}
 			}			
-		}while(resposta == 'N');
-		
-		sc.close();		
-		System.out.println("O jogo acabou.");
+			if(resposta == 'S') {
+				var = false;
+			}
+		}
+		System.out.println("O jogo foi encerrado.");
 	}
 }
