@@ -1,6 +1,6 @@
 package entities;
 
-public abstract class Barco {
+public abstract class Barco implements AnalisandoBarco {
 	private int pos_inicialX;
 	private int pos_inicialY;	
 	private int direcao;
@@ -30,10 +30,6 @@ public abstract class Barco {
 
 	public void setDirecao(int direcao) {
 		this.direcao = direcao;
-	}
-
-	public abstract int[][] criarBarco(int[][] tabuleiro);
-	
-	public abstract boolean verificaSeAfundou(int[][] tabuleiro);
+	}	
 
 }
