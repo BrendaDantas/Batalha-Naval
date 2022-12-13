@@ -20,6 +20,14 @@ public class Jogador {
 		this.tabuleiro = new Tabuleiro();
 	}	
 	
+	public List<Integer> getListaDeRankings() {
+		return listaDeRankings;
+	}
+
+	public void setListaDeRankings(List<Integer> listaDeRankings) {
+		this.listaDeRankings = listaDeRankings;
+	}
+
 	public int getContador() {
 		return contador;
 	}
@@ -33,6 +41,9 @@ public class Jogador {
 	}
 
 	public void iniciarPartida() {
+		this.listaDeRankings.add(0);
+		this.listaDeRankings.add(0);
+		this.listaDeRankings.add(0);
 		tabuleiro.criaTabuleiro();
 		tabuleiro.criarBarcoEmTabuleiro();
 		tabuleiro.mostraTabuleiro();
@@ -105,7 +116,7 @@ public class Jogador {
 		}
 		if(aux == 4) {	
 			System.out.println("Todos os navios foram afundados.");	
-			this.rankingDeResultado();
+			this.rankingDeResultado();			
 			return true;
 		}		
 		return false;

@@ -1,5 +1,8 @@
 package application;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 import controller.Jogador;
@@ -37,9 +40,25 @@ public class BatalhaNaval {
 					System.out.println("Digite uma resposta.");
 				}
 			}			
-			if(resposta == 'S') {
+			if(resposta == 'S') {				
 				var = false;
 			}
+		}
+		
+		try {
+			PrintStream arquivo = new PrintStream(new FileOutputStream("ranking.txt"));
+			int cont = 1;
+			System.out.println("RANKING DE PONTUACAO:");
+			for(int i = 0; i <= 2; i++) {
+				System.out.println(jogador.getListaDeRankings().get(i));
+				String valorDeRanking = jogador.getListaDeRankings().get(i).toString();
+				arquivo.append(cont + ": " + valorDeRanking);
+				cont++;
+			}
+			arquivo.close();
+		}		
+		catch(FileNotFoundException e) {
+			System.out.println("Erro de arquivo.");
 		}
 		
 		sc.close();
