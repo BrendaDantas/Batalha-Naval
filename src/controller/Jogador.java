@@ -1,12 +1,16 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 import entities.Tabuleiro;
 
 public class Jogador {
 			
+	List<Integer> listaDeRankings = new ArrayList<>();
 	int contador = 0;
 	Tabuleiro tabuleiro;	
 	boolean teste = false;
@@ -34,8 +38,7 @@ public class Jogador {
 		tabuleiro.mostraTabuleiro();
 	}
 
-	public boolean pegaTiros() {
-	
+	public boolean pegaTiros() {	
 		boolean var = true;			
 		while(var) {				
 			try {				
@@ -51,8 +54,7 @@ public class Jogador {
 				if(coluna == -3) {
 					sc.close();
 					return false;
-				}
-				//contador++;								
+				}								
 				//Verifica se o tiro foi na agua, já teve ou navio				
 				if(this.tabuleiro.getTabuleiro()[linha][coluna] == -1 || this.tabuleiro.getTabuleiro()[linha][coluna] == -2) {
 					System.out.println("Posicao ja foi atirada anteriormente.");
@@ -76,10 +78,9 @@ public class Jogador {
 				System.out.println("Posicao invalida. Tente novamente.");
 				sc.nextLine();
 				var = true;
-			}
-			
+			}			
 		}
-		contador++;
+		contador++;		
 		return true;		
 	}	
 	
@@ -102,11 +103,18 @@ public class Jogador {
 			aux++;
 			System.out.println("O destroyer afundou.");
 		}
-		if(aux == 4) {
-			System.out.println("Todos os navios foram afundados.");
+		if(aux == 4) {	
+			System.out.println("Todos os navios foram afundados.");	
+			this.rankingDeResultado();
 			return true;
-		}
+		}		
 		return false;
+	}
+	
+	public void rankingDeResultado() {
+		this.listaDeRankings.add(contador);
+		Collections.sort(listaDeRankings);
+		this.listaDeRankings = new ArrayList<Integer>(listaDeRankings.subList(listaDeRankings.size()-3, listaDeRankings.size()));
 	}
 
 }
