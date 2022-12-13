@@ -18,6 +18,7 @@ public class BatalhaNaval {
 			jogador.iniciarPartida();		
 			do {			
 				if(!jogador.pegaTiros()) {
+					System.out.println(jogador.getContador() + " tiros.");
 					System.out.println("O jogo foi encerrado.");
 					return;
 				}
@@ -40,6 +41,8 @@ public class BatalhaNaval {
 				var = false;
 			}
 		}
+		
+		System.out.println(jogador.getContador() + " tiros.");
 		System.out.println("O jogo foi encerrado.");
 	}
 }

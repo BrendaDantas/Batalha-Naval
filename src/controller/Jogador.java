@@ -7,12 +7,17 @@ import entities.Tabuleiro;
 
 public class Jogador {
 			
+	int contador = 0;
 	Tabuleiro tabuleiro;	
 	boolean teste = false;
 	Scanner sc = new Scanner(System.in);
 	
 	public Jogador() {
 		this.tabuleiro = new Tabuleiro();
+	}	
+	
+	public int getContador() {
+		return contador;
 	}
 	
 	public Tabuleiro getTabuleiro() {
@@ -47,7 +52,7 @@ public class Jogador {
 					sc.close();
 					return false;
 				}
-				
+				//contador++;								
 				//Verifica se o tiro foi na agua, já teve ou navio				
 				if(this.tabuleiro.getTabuleiro()[linha][coluna] == -1 || this.tabuleiro.getTabuleiro()[linha][coluna] == -2) {
 					System.out.println("Posicao ja foi atirada anteriormente.");
@@ -74,6 +79,7 @@ public class Jogador {
 			}
 			
 		}
+		contador++;
 		return true;		
 	}	
 	
