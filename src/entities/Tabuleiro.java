@@ -72,9 +72,9 @@ public class Tabuleiro {
 	}
 	
 	/*
-	 *  Mostrando o tabuleiro com condições onde 
-	 * ~ é agua e sem navio, * é um tiro onde não tem navio(errou)
-	 *  e X é tiro onde tem navio(acertou)
+	 *  Mostrando o tabuleiro com condicoes onde 
+	 * ~ eh agua e sem navio, * eh um tiro onde nao tem navio(errou)
+	 *  e X eh tiro onde tem navio(acertou)
 	 */
 	public void mostraTabuleiro() {
 		for(int linha = 0; linha < 10; linha++) {

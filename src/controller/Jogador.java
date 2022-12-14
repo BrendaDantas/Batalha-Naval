@@ -41,9 +41,6 @@ public class Jogador {
 	}
 
 	public void iniciarPartida() {
-		//this.listaDeRankings.add(0);
-		//this.listaDeRankings.add(0);
-		//this.listaDeRankings.add(0);
 		tabuleiro.criaTabuleiro();
 		tabuleiro.criarBarcoEmTabuleiro();
 		tabuleiro.mostraTabuleiro();
@@ -66,7 +63,9 @@ public class Jogador {
 					sc.close();
 					return false;
 				}								
-				//Verifica se o tiro foi na agua, já teve ou navio				
+				//Verifica se o tiro foi na agua, 
+				//se já teve tiro naquela posicao
+				//ou se ta atirando no navio				
 				if(this.tabuleiro.getTabuleiro()[linha][coluna] == -1 || this.tabuleiro.getTabuleiro()[linha][coluna] == -2) {
 					System.out.println("Posicao ja foi atirada anteriormente.");
 					var = true;
@@ -91,6 +90,7 @@ public class Jogador {
 				var = true;
 			}			
 		}
+		//o contador eh incrementado a cada tiro valido
 		contador++;		
 		return true;		
 	}	
@@ -123,11 +123,11 @@ public class Jogador {
 	}
 	
 	public void rankingDeResultado() {
+		//eu adiciono a quantidade de tiros totais a cada fim de partida dentro da lista
 		this.listaDeRankings.add(contador);
+		//zero o contador para recomecar a contagem na proxima partida
 		contador = 0;
 		Collections.sort(listaDeRankings);
-		//this.listaDeRankings = new ArrayList<Integer>(listaDeRankings.subList(listaDeRankings.size()-3, listaDeRankings.size()));
-		//this.listaDeRankings = new ArrayList<Integer>(listaDeRankings.subList(0, 3));
 	}
 
 }

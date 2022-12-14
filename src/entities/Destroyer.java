@@ -111,8 +111,7 @@ public class Destroyer extends Barco {
 				}				
 			} 
 		}
-		return tabuleiro;
-	
+		return tabuleiro;	
 	}
 
 	@Override
@@ -153,5 +152,4 @@ public class Destroyer extends Barco {
 		}
 		return false;
 	}
-
 }

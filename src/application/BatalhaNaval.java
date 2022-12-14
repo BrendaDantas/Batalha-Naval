@@ -32,7 +32,7 @@ public class BatalhaNaval {
 			
 			resposta = ' ';
 			while(resposta != 'N' && resposta != 'S') {
-				System.out.println("Você deseja parar de jogar? [S/N]: ");
+				System.out.println("Voce deseja parar de jogar? [S/N]: ");
 				try {				
 					resposta = sc.nextLine().toUpperCase().charAt(0);
 				}
@@ -50,7 +50,6 @@ public class BatalhaNaval {
 			int cont = 1;
 			arquivo.append("RANKING DE PONTUACAO:\n");
 			for(int i = 0; i <= 2; i++) {
-				System.out.println(jogador.getListaDeRankings().get(i));
 				String valorDeRanking = jogador.getListaDeRankings().get(i).toString();
 				arquivo.append(cont + ": " + valorDeRanking + "\n");
 				cont++;

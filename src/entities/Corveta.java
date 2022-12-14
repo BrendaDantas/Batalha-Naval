@@ -18,6 +18,7 @@ public class Corveta extends Barco {
 
 			if(tabuleiro[linha][coluna] == 0) {
 				switch(direcao) {
+				//Para cima
 				case 0:				
 					if(linha != 0 && tabuleiro[linha-1][coluna] == 0) {
 						tabuleiro[linha][coluna] = 1;
@@ -28,6 +29,7 @@ public class Corveta extends Barco {
 						var = false;
 					}				
 					break;
+				//Para direita	
 				case 1:
 					if(coluna != 9 && tabuleiro[linha][coluna+1] == 0) {
 						tabuleiro[linha][coluna] = 1;
@@ -38,6 +40,7 @@ public class Corveta extends Barco {
 						var = false;
 					}		
 					break;
+				//Para baixo	
 				case 2:
 					if(linha != 9 && tabuleiro[linha+1][coluna] == 0) {
 						tabuleiro[linha][coluna] = 1;
@@ -48,6 +51,7 @@ public class Corveta extends Barco {
 						var = false;
 					}			
 					break;
+				//Para esquerda
 				case 3:
 					if(coluna != 0 && tabuleiro[linha][coluna-1] == 0) {
 						tabuleiro[linha][coluna] = 1;

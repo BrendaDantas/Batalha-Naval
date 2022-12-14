@@ -17,7 +17,7 @@ public class Submarino extends Barco {
 
 			if(tabuleiro[linha][coluna] == 0) {
 				int cont = 0, aux = 1;
-				switch(direcao) {	
+				switch(direcao) {					
 				case 0:		
 					while(cont < 3) {
 						if(tabuleiro[linha-cont][coluna] == 0 && linha-cont > 0) {											
@@ -121,11 +121,11 @@ public class Submarino extends Barco {
 		case 0:
 			for(int i = 0; i < 3; i++) {
 				if(tabuleiro[this.getPos_inicialX()-i][this.getPos_inicialY()] == 2) {
-					//Se for submarino, retorno false. Significa que ainda tem navio la, entao nao afundou
+					//Se for submarino, retorno false. Significa que ainda tem navio la, entao nao afundou.
 					return false;
 				}
 			}
-			//Se nao for submarino, retorno true. Significa que nao tem mais submarino la, então afundou
+			//Se nao for submarino, retorno true. Significa que nao tem mais submarino la, então afundou;
 			return true;
 		//Para direita	
 		case 1:
