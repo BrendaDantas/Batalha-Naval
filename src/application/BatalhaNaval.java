@@ -48,7 +48,6 @@ public class BatalhaNaval {
 		try {
 			PrintStream arquivo = new PrintStream(new FileOutputStream("ranking.txt"));
 			int cont = 1;
-			System.out.println("RANKING DE PONTUACAO:");
 			arquivo.append("RANKING DE PONTUACAO:\n");
 			for(int i = 0; i <= 2; i++) {
 				System.out.println(jogador.getListaDeRankings().get(i));

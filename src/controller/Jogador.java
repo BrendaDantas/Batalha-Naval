@@ -41,9 +41,9 @@ public class Jogador {
 	}
 
 	public void iniciarPartida() {
-		this.listaDeRankings.add(0);
-		this.listaDeRankings.add(0);
-		this.listaDeRankings.add(0);
+		//this.listaDeRankings.add(0);
+		//this.listaDeRankings.add(0);
+		//this.listaDeRankings.add(0);
 		tabuleiro.criaTabuleiro();
 		tabuleiro.criarBarcoEmTabuleiro();
 		tabuleiro.mostraTabuleiro();
@@ -124,8 +124,10 @@ public class Jogador {
 	
 	public void rankingDeResultado() {
 		this.listaDeRankings.add(contador);
+		contador = 0;
 		Collections.sort(listaDeRankings);
-		this.listaDeRankings = new ArrayList<Integer>(listaDeRankings.subList(listaDeRankings.size()-3, listaDeRankings.size()));
+		//this.listaDeRankings = new ArrayList<Integer>(listaDeRankings.subList(listaDeRankings.size()-3, listaDeRankings.size()));
+		//this.listaDeRankings = new ArrayList<Integer>(listaDeRankings.subList(0, 3));
 	}
 
 }
